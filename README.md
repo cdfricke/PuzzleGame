@@ -5,8 +5,8 @@ This is a simple program designed for console output of a search algorithm solvi
 The program will use a type of search algorithm, perhaps eventually multiple iterations will use different search algorithms.
 The goal is to shuffle tiles to reach a goal state. A solution may look like:
 
-  [ 1 2 3 ]
-  [ 8 0 4 ]
+  [ 1 2 3 ]\
+  [ 8 0 4 ]\
   [ 7 6 5 ]
 
 Algorithms are yet to be implements, but may be:
