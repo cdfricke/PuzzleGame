@@ -63,6 +63,7 @@ public:
     Tile at(const int, const int) const;
     void set(const Pair& position, const Tile&);
     friend std::ostream& operator<<(std::ostream&, const Matrix&);
+    friend bool operator==(const Matrix&, const Matrix&);
 };
 
 int main()
@@ -172,7 +173,7 @@ Tile Matrix::at(const int row, const int col) const
 }
 void Matrix::set(const Pair &position, const Tile &)
 {
-
+    
 }
 std::ostream& operator<<(std::ostream &out, const Matrix &aMat)
 {
@@ -184,4 +185,16 @@ std::ostream& operator<<(std::ostream &out, const Matrix &aMat)
         }
         out << std::endl;
     }
+}
+bool operator==(const Matrix& aMat, const Matrix& bMat)
+{
+    for (int i = 0; i < aMat.numrows; i++)
+    {
+        for (int j = 0; j < aMat.numcols; j++)
+        {
+            if (aMat.at(i,j).getValue() != bMat.at(i,j).getValue())
+            return false;
+        }
+    }
+    return true;
 }
