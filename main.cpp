@@ -10,11 +10,17 @@ according to the goal state:
   1 2 3
   8   4
   7 6 5
+
+# matrix locations are according to the following map
+[[00, 01, 02]]
+[[10, 11, 12]]
+[[20, 21, 22]]
 */
 
 #include <iostream>
 #include <vector>
 #include <array>
+#include <assert.h>
 
 class Pair
 {
@@ -38,7 +44,7 @@ private:
     Pair position;
 public:
     Tile();
-    Tile(const int x, const int y, const int value);
+    Tile(const int row, const int col, const int value);
     int getValue() const;
     void setValue(const int);
     Pair getPosition() const;
@@ -46,15 +52,37 @@ public:
     friend std::ostream& operator<<(std::ostream&, const Tile&);
 };
 
+class Matrix
+{
+private:
+    const int numrows = 3;
+    const int numcols = 3;
+    Tile state[3][3];
+public:
+    Matrix();
+    Tile at(const int, const int) const;
+    void set(const Pair& position, const Tile&);
+    friend std::ostream& operator<<(std::ostream&, const Matrix&);
+};
+
 int main()
 {
-    Pair myPair(1,3);
-    std::cout << myPair;
-    myPair.setX(0);
-    std::cout << myPair << std::endl;
+    // let's create nine tiles
+    Tile zero(1, 1, 0);
+    Tile one(0, 0, 1);
+    Tile two(0, 1, 2);
+    Tile three(0, 2, 3);
+    Tile four(1, 2, 4);
+    Tile five(2, 2, 5);
+    Tile six(2, 1, 6);
+    Tile seven(2, 0, 7);
+    Tile eight(1, 0, 8);
 
-    Tile myTile(0, 5, 10);
-    std::cout << myTile;
+    // and output them manually
+    std::cout << one << two << three << std::endl
+              << eight << zero << four << std::endl
+              << seven << six << five << std::endl;
+
     return 0;
 }
 
@@ -66,10 +94,10 @@ Tile::Tile()
     value = 0;
     position.setValues(0, 0);
 }
-Tile::Tile(const int x, const int y, const int value) 
+Tile::Tile(const int row, const int col, const int value) 
 {
     this->value = value;
-    this->position.setValues(x, y);
+    this->position.setValues(row, col);
 }
 int Tile::getValue() const
 {
@@ -89,7 +117,12 @@ void Tile::setPosition(const int val1, const int val2)
 }
 std::ostream &operator<<(std::ostream& out, const Tile& tile)
 {
-    out << tile.getPosition() << " : " << tile.getValue();
+    if (tile.getValue() == 0)
+    {
+        out << ": :";
+        return out;
+    }
+    out << ":" << tile.getValue() << ":";
     return out;
 }
 
@@ -115,4 +148,40 @@ std::ostream& operator<<(std::ostream& out, const Pair& pair)
 {
     out << "(" << pair.getX() << ", " << pair.getY() << ")";
     return out;
+}
+
+//
+//  MATRIX CLASS IMPLEMENTATION
+//
+Matrix::Matrix()
+{
+    for (int i = 0; i < numrows; i++)
+    {
+        for (int j = 0; j < numcols; j++)
+        {
+            state[i][j].setValue(0);
+            state[i][j].setPosition(i, j);
+        }
+    }
+}
+Tile Matrix::at(const int row, const int col) const
+{
+    assert(row < numrows and row > -1  and col < numcols and col > -1);
+
+    return state[row][col];
+}
+void Matrix::set(const Pair &position, const Tile &)
+{
+
+}
+std::ostream& operator<<(std::ostream &out, const Matrix &aMat)
+{
+    for (int i = 0; i < aMat.numrows; i++)
+    {
+        for (int j = 0; j < aMat.numcols; j++)
+        {
+            out << aMat.at(i, j);
+        }
+        out << std::endl;
+    }
 }
