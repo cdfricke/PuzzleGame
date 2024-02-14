@@ -5,11 +5,12 @@
             "label": "C/C++: g++.exe build active file",
             "command": "C:\\msys64\\mingw64\\bin\\g++.exe",
             "args": [
-                "-fdiagnostics-color=always",
                 "-g",
                 "${file}",
+                "matrix.cpp",
                 "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+                "${fileDirname}.exe",
+                "-fdiagnostics-color=always"
             ],
             "options": {
                 "cwd": "${fileDirname}"
