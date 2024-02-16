@@ -10,7 +10,9 @@
                 "matrix.cpp",
                 "-o",
                 "${fileDirname}.exe",
-                "-fdiagnostics-color=always"
+                "-fdiagnostics-color=always",
+                "-I",
+                "${fileLocation}\\include"
             ],
             "options": {
                 "cwd": "${fileDirname}"
