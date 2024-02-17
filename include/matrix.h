@@ -29,6 +29,12 @@ public:
     Matrix();
 
     /*
+    Matrix::Matrix(const int, const int)
+    Initializes a matrix with rows equal to the first paramater, and columns equal to the second parameter.
+    */
+    Matrix(const int rows, const int cols);
+
+    /*
     Matrix::~Matrix()
     Destructor, which deletes each of the dynamically stored "rows" and then deletes the
     pointer to the array of rows.
@@ -64,6 +70,14 @@ public:
     Returns an integer -1 if element accessed out of range, otherwise returns 0.
     */
     int setElement(const int i, const int j, const int set);
+
+    /*
+    void Matrix::setDimensions(const int rows, const int cols)
+    setDimensions can be used to grow or shrink a matrix. 
+    If the matrix is to be shrunk, terms outside the new "bounds" will be deleted, and unrecoverable.
+    If the matrix is to be grown, new elements are initialized to zero. TODO: IMPLEMENT
+    */
+    void setDimensions(const int numRows, const int numCols);
 
     /*
     Overloaded << operator for easy output of Matrix objects.

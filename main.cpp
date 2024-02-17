@@ -23,14 +23,7 @@ according to the goal state:
 
 int main()
 {
-    Matrix myMatrix;
-    for (int i = 0; i < myMatrix.numRows(); i++)
-    {
-        for (int j = 0; j < myMatrix.numCols(); j++)
-        {
-            myMatrix.setElement(i, j, i+j);
-        }
-    }
+    Matrix myMatrix(50,5);
     std::cout << myMatrix << std::endl;
 
     return 0;

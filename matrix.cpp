@@ -5,16 +5,47 @@ Matrix::Matrix()
     matrix = new int *[DEFAULT];
     rows = DEFAULT;
     cols = DEFAULT;
-
-    for (int i = 0; i < DEFAULT; i++)
+    // dynamically allocate DEFAULT number of rows
+    for (int i = 0; i < rows; i++)
     {
         matrix[i] = new int[DEFAULT];
     }
-    for (int row = 0; row < DEFAULT; row++)
+
+    // load identity matrix
+    for (int i = 0; i < rows; i++)
     {
-        for (int col = 0; col < DEFAULT; col++)
+        for (int j = 0; j < cols; j++)
         {
-            matrix[row][col] = row + col;
+            if (i == j)
+            matrix[i][j] = 1;
+            else
+            matrix[i][j] = 0;
+        }
+    }
+}
+
+Matrix::Matrix(const int numRows, const int numCols)
+{
+    // dynamically allocate parameter number of rows
+    rows = numRows;
+    cols = numCols;
+    
+    matrix = new int*[rows];
+    for (int i = 0; i < rows; i++)
+    {
+        // each matrix[i] is a row.
+        matrix[i] = new int[cols];
+    }
+
+    // load identity matrix
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < cols; j++)
+        {
+            if (i == j)
+                matrix[i][j] = 1;
+            else
+                matrix[i][j] = 0;
         }
     }
 }
@@ -50,6 +81,11 @@ int Matrix::setElement(const int i, const int j, const int set)
     }
     matrix[i][j] = set;
     return 0;
+}
+
+void Matrix::setDimensions(const int rows, const int cols)
+{
+    // TODO: Implement
 }
 
 std::ostream &operator<<(std::ostream &out, const Matrix &aMatrix)
