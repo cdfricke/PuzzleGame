@@ -23,7 +23,7 @@ according to the goal state:
 
 int main()
 {
-    Matrix myMatrix(50,5);
+    Matrix myMatrix(10,10);
     std::cout << myMatrix << std::endl;
 
     return 0;

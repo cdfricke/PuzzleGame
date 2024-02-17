@@ -24,7 +24,7 @@ class Matrix
 public:
     /*
     Matrix::Matrix()
-    Initializes a default square matrix of dimension DEFAULT, filled with matrix element indices.
+    Initializes a default square IDENTITY matrix of dimension DEFAULT.
     */
     Matrix();
 
@@ -43,13 +43,13 @@ public:
 
     /*
     int Matrix::numRows() const
-    Returns the number of rows stored by the matrix
+    Returns the number of rows stored by the matrix (the private data member)
     */
     int numRows() const { return rows; }
 
     /*
     int Matrix::numCols() const
-    Returns the number of columns stored by the matrix
+    Returns the number of columns stored by the matrix (the private data member)
     */
     int numCols() const { return cols; }
 
