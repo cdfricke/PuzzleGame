@@ -7,12 +7,10 @@
             "args": [
                 "-g",
                 "${file}",
-                "matrix.cpp",
                 "-o",
-                "${fileDirname}.exe",
-                "-fdiagnostics-color=always",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe",
                 "-I",
-                "${fileLocation}\\include"
+                "${workspaceFolder}"
             ],
             "options": {
                 "cwd": "${fileDirname}"

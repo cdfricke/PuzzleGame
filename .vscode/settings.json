@@ -9,6 +9,7 @@
         "cmath": "cpp",
         "compare": "cpp",
         "concepts": "cpp",
+        "cstdarg": "cpp",
         "cstddef": "cpp",
         "cstdint": "cpp",
         "cstdio": "cpp",
@@ -16,6 +17,7 @@
         "cwchar": "cpp",
         "cwctype": "cpp",
         "deque": "cpp",
+        "map": "cpp",
         "string": "cpp",
         "unordered_map": "cpp",
         "vector": "cpp",
@@ -42,7 +44,6 @@
         "ostream": "cpp",
         "stdexcept": "cpp",
         "streambuf": "cpp",
-        "typeinfo": "cpp",
-        "cstdarg": "cpp"
+        "typeinfo": "cpp"
     }
 }
