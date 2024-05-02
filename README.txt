@@ -14,14 +14,5 @@ Algorithms are yet to be implements, but may be:
   Greedy Search
   Depth-Limited Search
 
-The current program uses a map of key value pairs corresponding to the location and the tile value at that location.
-For example, the above map would look like the following set of key value pairs:
-[{0, 1}, {1, 2}, {2, 3},
- {3, 8}, {4, 0}, {5, 4},
- {6, 7}, {7, 6}, {8, 5}]
-
-The first value in each pair is the key. It represents the numbered location of the "tile" in the 3x3 grid. These keys
-are integers numbered 0-8. Keys 0-2 correspond to the top row, 3-5 corresponds to the middle row, and 6-8 to the bottom
-row.
-
-Valid moves are dependent on the location of zero. Based on it's location, there is 2-4 possible moves.
+The current program implements the puzzle with a 2D dynamic array, and a Config class that represents the array and it's heuristic
+evaluation.
